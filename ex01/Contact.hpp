@@ -1,6 +1,12 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
+# define FIRST_NAME 0
+# define LAST_NAME 1
+# define NICKNAME 2
+# define PHONE_NUMBER 3
+# define DARKEST_SECRET 4
+
 // Include ALL dependencies this header needs
 #include <string>
 #include <iostream>
@@ -17,13 +23,16 @@ private:
 public:
 	Contact();
 	~Contact();
-	int AddFirstName();
-	int AddLastName();
-	int AddNickname();
-	int AddPhoneNumber();
-	int AddDarkestSecret();
-	//add getters
-	//add display methods (full and truncated)
+	void AddFirstName();
+	void AddLastName();
+	void AddNickname();
+	void AddPhoneNumber();
+	void AddDarkestSecret();
+	// std::string GetField(int field);
+	std::string GetField(int index);
+	void DisplayFull(std::string input);
+	void DisplayPart(std::string input);
+	void DisplayAll();
 };
 
 int	check_input(std::string* input);

@@ -3,16 +3,31 @@
 
 int	check_name(std::string* input)
 {
+	bool has_char = false;
+
 	if (input->empty())
 	{
-		std::cout << "Field cannot be empty" << std::endl;
+		std::cout << "ERROR : Field cannot be empty" << std::endl;
 		return (1);
 	}
-	for (int i = 0; i < input->length(); i++)
+	for (int i = 0; i < (int)input->length(); i++)
+	{
+		if (!isspace((*input)[i]))
+		{
+			has_char = true;
+			break ;
+		}
+	}
+	if (has_char == false)
+	{
+		std::cout << "ERROR : Field cannot be empty" << std::endl;
+		return (1);
+	}
+	for (int i = 0; i < (int)input->length(); i++)
 	{
 		if (!isalnum((*input)[i]) && (*input)[i] != '-' && (*input)[i] != ' ')
 		{
-			std::cout << "Invalid character in field" << std::endl;
+			std::cout << "ERROR : Invalid character in field" << std::endl;
 			return (1);
 		}
 	}
@@ -24,7 +39,7 @@ int	check_input(std::string* input)
 {
 	if (input->empty())
 	{
-		std::cout << "Field cannot be empty" << std::endl;
+		std::cout << "ERROR : Field cannot be empty" << std::endl;
 		return (1);
 	}
 	return (0);
@@ -38,7 +53,7 @@ int	check_number(std::string* input)
 
 	if (input->empty())
 	{
-		std::cout << "Field cannot be empty" << std::endl;
+		std::cout << "ERROR : Field cannot be empty" << std::endl;
 		return (1);
 	}
 	if ((*input)[0] == '+')
@@ -46,18 +61,18 @@ int	check_number(std::string* input)
 		flag = 1;
 		i++;
 	}
-	while (i < input->length())
+	while (i < (int)input->length())
 	{
 		if (!isdigit((*input)[i]))
 		{
-			std::cout << "Phone number should be only numbers" << std::endl;
+			std::cout << "ERROR : Phone number should be only numbers" << std::endl;
 			return (1);
 		}
 		i++;
 	}
-	if ((flag && i != 10) || (!flag && i != 9))
+	if ((flag && i != 12) || (!flag && i != 10))
 	{
-		std::cout << "Invalid phone number length" << std::endl;
+		std::cout << "ERROR : Invalid phone number length" << std::endl;
 		return (1);
 	}
 	return (0);

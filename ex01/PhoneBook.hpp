@@ -4,14 +4,23 @@
 // Include ALL dependencies this header needs  
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include "Contact.hpp"
 
 class PhoneBook
 {
 private:
-	Contact[8];
+	Contact	contacts[8];
+	int		index;
+	int		count;
+	int		input_index;
 
 public:
-	
+	PhoneBook();
+	~PhoneBook();
+	void AddFunction();
+	void SearchFunction();
+	bool IsValidIndex(std::string temp);
 };
 
 #endif

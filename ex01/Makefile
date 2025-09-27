@@ -28,7 +28,7 @@ $(NAME): $(OBJECTS)
 $(OBJ_DIR)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(CYAN)\nCompiled: $<$ \n(RESET)"
+	@echo "$(CYAN)Compiled: $<$ $(RESET)"
 
 # Cleaning rules
 clean:
@@ -37,7 +37,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(MAGENTA)\nExecutable removed\n$(RESET)"
+	@echo "$(MAGENTA)Executable removed$(RESET)"
 
 re: fclean all
 
